@@ -125,8 +125,7 @@
 }
 
 .main {
-  min-height: calc(100vh - 80px - 80px);
-  padding: 40px 0;
+  min-height: calc(100vh - 80px - 80px); 
 }
 
 .footer {

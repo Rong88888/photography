@@ -2,6 +2,7 @@
   "name": "photography-platform",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.17.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

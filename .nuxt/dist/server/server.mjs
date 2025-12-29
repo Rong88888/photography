@@ -1,1 +1,1 @@
-export { default } from "file:///E:/Work/999-demo/Ai%E7%94%9F%E6%88%90/Photography/photography/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
+export { default } from "file:///E:/Work/999-demo/Ai%E7%94%9F%E6%88%90/Photography/photography/node_modules/.pnpm/@nuxt+vite-builder@3.20.2_@_a51812871ad008c28d96c0980f224aea/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
