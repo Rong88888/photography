@@ -1,0 +1,69 @@
+:root {
+  --primary-color: #36cfc9; /* 调整为更亮的青色，在深色背景更突出 */
+  --text-color: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --bg-color: #0a0a0a;
+  --card-bg: #141414;
+  --border-color: #333;
+  --header-bg: rgba(10, 10, 10, 0.8);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 1600px; /* 宽度调整为 1600px */
+  margin: 0 auto;
+  padding: 0 40px; /* 增加内边距 */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 全局动画类 */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
