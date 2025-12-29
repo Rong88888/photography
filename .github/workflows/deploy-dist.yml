@@ -1,38 +1,33 @@
-# .github/workflows/deploy-dist.yml
 name: Auto Deploy Dist to GitHub Pages
-
-# 触发条件：当代码推送到 main 分支时，自动执行流水线
 on:
   push:
-    branches: [ main ] # 若你的源码分支是 master，替换为 master
-
+    branches: [ main ]
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # 运行环境：Ubuntu 最新版
+    runs-on: ubuntu-latest
     steps:
-      # 步骤1：拉取 GitHub 仓库源码
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 步骤2：安装 Node.js 环境（适配 Nuxt 3 要求，Node 18+）
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm' # 缓存依赖，提升构建速度
 
-      # 步骤3：安装项目依赖
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest # 使用最新版 pnpm
+
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install
 
-      # 步骤4：打包生成 dist 目录（Nuxt 静态打包命令）
       - name: Generate Dist Files
-        run: npm run generate
+        run: pnpm run generate
 
-      # 步骤5：自动部署 dist 目录到 gh-pages 分支
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          publish_dir: ./dist # 指定部署的目录为 dist（核心配置）
-          github_token: ${{ secrets.GITHUB_TOKEN }} # 自动授权，无需手动配置
-          branch: gh-pages # 部署到 gh-pages 分支
+          publish_dir: ./dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
