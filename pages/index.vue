@@ -18,7 +18,7 @@
           <div class="img-wrapper">
             <img :src="`https://picsum.photos/seed/${i}/600/400`" class="work-image" alt="作品封面" />
             <div class="overlay">
-              <button>查看详情</button>
+              <button @click="viewDetails(i)">查看详情</button>
             </div>
           </div>
           <div class="work-info">
@@ -135,12 +135,17 @@ const seamlessPhotographerList = [...photographerList, ...photographerList, ...p
 const seamlessPartnerList = [...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos]
 
 const photographerTrack = ref(null)
+
+function viewDetails(id) {
+  window.location.href = `/works/${id}`;
+}
 </script>
 
 <style lang="scss" scoped>
 .banner {
   position: relative;
   height: 600px;
+  min-height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,6 +204,20 @@ const photographerTrack = ref(null)
     transform: scale(1.1);
     animation: zoomIn 20s infinite alternate;
   }
+
+  @media (max-width: 900px) {
+    height: 340px;
+    h1 { font-size: 36px; }
+    p { font-size: 16px; }
+    .btn-explore { font-size: 15px; padding: 10px 24px; }
+  }
+  @media (max-width: 600px) {
+    height: 220px;
+    .container { padding: 0 10px; }
+    h1 { font-size: 22px; }
+    p { font-size: 13px; }
+    .btn-explore { font-size: 13px; padding: 8px 16px; }
+  }
 }
 
 @keyframes zoomIn {
@@ -228,6 +247,16 @@ const photographerTrack = ref(null)
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 30px;
   margin-top: 40px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 18px;
+  }
 }
 
 .work-card {
@@ -255,6 +284,9 @@ const photographerTrack = ref(null)
     position: relative;
     height: 260px;
     overflow: hidden;
+
+    @media (max-width: 900px) { height: 180px; }
+    @media (max-width: 600px) { height: 120px; }
   }
 
   .work-image {

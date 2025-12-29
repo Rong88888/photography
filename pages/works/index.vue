@@ -21,7 +21,7 @@
         <div class="cover-wrapper">
           <img :src="`https://picsum.photos/seed/${i + 10}/400/300`" class="cover" alt="作品封面" />
           <div class="overlay">
-            <button class="btn-view">查看详情</button>
+            <button class="btn-view" @click="viewDetails(i)">查看详情</button>
           </div>
         </div>
         <div class="info">
@@ -40,6 +40,11 @@
     </div>
   </div>
 </template>
+<script setup>
+function viewDetails(id) {
+  window.location.href = `/works/${id}`;
+}
+</script>
 
 <style lang="scss" scoped>
 .works-page {
