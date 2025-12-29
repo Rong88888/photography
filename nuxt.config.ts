@@ -7,13 +7,6 @@ export default defineNuxtConfig({
   ],
   app: {
     baseURL:"/Photography/",
-    nitro:{
-        preset:'static',
-        output:{
-            dir: './dist',
-            publicDir: './public'
-        }
-    },
     head: {
       title: '影集社 - 摄影分享与交流平台',
       meta: [
@@ -39,5 +32,12 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/css/main.scss'
-  ]
+  ],
+  nitro:{
+    preset:'static',
+    output:{
+        dir: './dist',
+        publicDir: './public'
+    }
+  }
 })

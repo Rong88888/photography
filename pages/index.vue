@@ -153,30 +153,45 @@ function viewDetails(id) {
   overflow: hidden;
   margin-bottom: 60px;
 
+  @media (max-width: 768px) {
+    height: 400px;
+    padding: 0 20px;
+  }
+
   .container {
     position: relative;
     z-index: 2;
   }
 
   h1 {
-    font-size: 72px;
+    font-size: 64px;
     font-weight: 800;
     margin-bottom: 20px;
-    background: linear-gradient(to right, #fff, #aaa);
-    -webkit-background-clip: text;
+    background: linear-gradient(45deg, #fff, #e6f7ff);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 2px;
+    
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
   }
   
   p {
     font-size: 24px;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.9);
     margin-bottom: 40px;
+    font-weight: 300;
+    
+    @media (max-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
   }
 
   .btn-explore {
-    padding: 15px 40px;
+    padding: 16px 48px;
     font-size: 18px;
     background: var(--primary-color);
     border: none;
@@ -184,11 +199,17 @@ function viewDetails(id) {
     color: #000;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 0 20px rgba(54,207,201,0.4);
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(54, 207, 201, 0.3);
+      box-shadow: 0 0 30px rgba(54,207,201,0.6);
+    }
+    
+    @media (max-width: 768px) {
+      padding: 12px 32px;
+      font-size: 16px;
     }
   }
 
@@ -198,25 +219,9 @@ function viewDetails(id) {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://picsum.photos/seed/banner/1920/1080') no-repeat center/cover;
-    filter: brightness(0.4);
+    background: url('https://picsum.photos/1920/1080?blur=2') center/cover no-repeat;
     z-index: 1;
-    transform: scale(1.1);
-    animation: zoomIn 20s infinite alternate;
-  }
-
-  @media (max-width: 900px) {
-    height: 340px;
-    h1 { font-size: 36px; }
-    p { font-size: 16px; }
-    .btn-explore { font-size: 15px; padding: 10px 24px; }
-  }
-  @media (max-width: 600px) {
-    height: 220px;
-    .container { padding: 0 10px; }
-    h1 { font-size: 22px; }
-    p { font-size: 13px; }
-    .btn-explore { font-size: 13px; padding: 8px 16px; }
+    filter: brightness(0.4);
   }
 }
 
@@ -252,7 +257,16 @@ function viewDetails(id) {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 18px;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
     gap: 12px;
     margin-top: 18px;
@@ -260,33 +274,34 @@ function viewDetails(id) {
 }
 
 .work-card {
-  background: rgba(54,207,201,0.10); // 明显10%主色
+  background: #1f1f1f;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #333;
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    border-color: rgba(255,255,255,0.1);
-
-    .work-image {
-      transform: scale(1.1);
-    }
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-color: var(--primary-color);
     
     .overlay {
       opacity: 1;
+    }
+    
+    .work-image {
+      transform: scale(1.05);
     }
   }
 
   .img-wrapper {
     position: relative;
-    height: 260px;
+    height: 200px;
     overflow: hidden;
-
-    @media (max-width: 900px) { height: 180px; }
-    @media (max-width: 600px) { height: 120px; }
+    
+    @media (max-width: 768px) {
+      height: 150px;
+    }
   }
 
   .work-image {

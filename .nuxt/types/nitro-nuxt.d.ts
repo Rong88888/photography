@@ -1,7 +1,7 @@
 
 /// <reference path="app.config.d.ts" />
 /// <reference path="runtime-config.d.ts" />
-/// <reference types="E:/Work/999-demo/Ai生成/Photography/photography/node_modules/.pnpm/@nuxt+nitro-server@3.20.2_d_fd3caacfada59034f8bc9ec4c54b54b6/node_modules/@nuxt/nitro-server/dist/index.mjs" />
+/// <reference types="E:/Work/999-demo/Ai生成/Photography/photography/node_modules/.pnpm/@nuxt+nitro-server@3.20.2_d_ba282909d148f7129a62fb8f3f530ceb/node_modules/@nuxt/nitro-server/dist/index.mjs" />
 /// <reference path="nitro-middleware.d.ts" />
 /// <reference path="./schema.d.ts" />
 

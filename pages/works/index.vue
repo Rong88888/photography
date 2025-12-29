@@ -41,8 +41,11 @@
   </div>
 </template>
 <script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
 function viewDetails(id) {
-  window.location.href = `/works/${id}`;
+  router.push(`/works/${id}`)
 }
 </script>
 

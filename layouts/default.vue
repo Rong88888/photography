@@ -112,10 +112,10 @@ const showNav = ref(false)
     & span.open {
       background: transparent;
     }
-    & span.open ~ &::before {
+    & span.open::before {
       transform: translateY(8px) rotate(45deg);
     }
-    & span.open ~ &::after {
+    & span.open::after {
       transform: translateY(-8px) rotate(-45deg);
     }
   }
@@ -253,27 +253,74 @@ const showNav = ref(false)
   @media (max-width: 900px) {
     .nav-toggle {
       display: block;
+      order: 3; /* 确保按钮在最右侧 */
+    }
+    .logo {
+      order: 1;
     }
     .nav {
-      position: absolute;
-      top: 60px;
+      position: fixed; /* 改为 fixed 覆盖全屏 */
+      top: 80px; /* 头部高度 */
       left: 0;
       width: 100vw;
-      background: #000;
+      height: calc(100vh - 80px);
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
       flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-      padding: 0 0 20px 0;
-      display: none;
+      align-items: center; /* 居中对齐 */
+      justify-content: center; /* 垂直居中 */
+      gap: 30px;
+      padding: 40px 20px;
+      display: flex;
+      transform: translateX(100%); /* 默认移出屏幕 */
+      transition: transform 0.3s ease-in-out;
       z-index: 110;
-      a {
-        width: 100%;
-        padding: 16px 32px;
-        font-size: 18px;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-      }
+      
       &.open {
-        display: flex;
+        transform: translateX(0); /* 滑入屏幕 */
+      }
+
+      a {
+        width: auto;
+        padding: 10px 20px;
+        font-size: 24px;
+        border-bottom: none;
+        text-align: center;
+        
+        &.router-link-active {
+           color: var(--primary-color);
+           &::after {
+             width: 100%;
+             left: 0;
+           }
+        }
+      }
+    }
+    
+    .user-actions-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      align-items: center;
+      margin-top: 20px;
+      
+      .btn-login, .btn-user {
+        width: 200px;
+        padding: 12px 0;
+        font-size: 18px;
+        text-align: center;
+        border-radius: 30px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: transparent !important;
+        color: #fff !important;
+      }
+      
+      .btn-user {
+        background: var(--primary-color) !important;
+        color: #000 !important;
+        border: none;
+        font-weight: bold !important;
       }
     }
   }

@@ -2,14 +2,14 @@
   "name": "photography-platform",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "pnpm@9.1.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy":"npm run generate && gh-pages -d dist -t true"
+    "deploy": "pnpm run generate && gh-pages -d dist -t true"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
